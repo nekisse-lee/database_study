@@ -68,11 +68,11 @@ name 컬럼이 A인것 count
     |---------------|
     |            13 |
     
-    - where name='A' or name ='B';
-    - name= A인 quantity    1 , 2
-    - name= B인 quantity  10
-    - select SUM(quantity)   = 1, 2, 10 
-    - 13
+    1. where name='A' or name ='B';
+    2. name= A인 quantity    1 , 2
+    3. name= B인 quantity  10
+    4. select SUM(quantity)   = 1, 2, 10 
+    5. 13
     
 ### 2. 집계함수와 NULL값
 count의 인수로 열명을 지정할 수 있다.  
