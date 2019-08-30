@@ -80,13 +80,13 @@ count의 인수로 열명을 지정할 수 있다.
 
 - ex) select * from ttable;
 
-| no   | name | quantity |
-|------|------|----------|
-|    1 | A    |        1 |
-|    2 | A    |        2 |
-|    3 | B    |       10 |
-|    4 | C    |        3 |
-|    5 | NULL |     NULL |
+  | no   | name | quantity |
+  |------|------|----------|
+  |    1 | A    |        1 |
+  |    2 | A    |        2 |
+  |    3 | B    |       10 |
+  |    4 | C    |        3 |
+  |    5 | NULL |     NULL |
 
   - no열(컬럼) 과 name열(컬럼) count
   - select count(no), count(name) from ttable;
@@ -96,3 +96,49 @@ count의 인수로 열명을 지정할 수 있다.
     |         5 |           4 |
     
   - name 의 null은  count에서 제외.
+  
+  ### 3. DISTANCT로 중복 제거
+  
+  - ex) select * from ttable;
+   
+    | no   | name | quantity |
+    |------|------|----------|
+    |    1 | A    |        1 |
+    |    2 | A    |        2 |
+    |    3 | B    |       10 |
+    |    4 | C    |        3 |
+    |    5 | NULL |     NULL |
+    
+    - name A가 2개 , 중복이다.
+    
+    - select All name from ttable; (All은 생략 가능)
+      
+      | name |
+      |------|
+      | A    |
+      | A    |
+      | B    |
+      | C    |
+      | NULL |
+      
+    - select distinct name from ttable;      
+      distinct 로 중복 제거 
+      
+      | name |
+      |------|
+      | A    |
+      | B    |
+      | C    |
+      | NULL |
+      
+### 4. 집계함수에서 DISTINCT
+
+- ex) name의 중복을 제거 한 뒤 개수 구하기
+  - select count(all name) as 모든이름, count(distinct name) 중복제거 from ttable;  
+      (별칭사용(as는 생략가능)  , all 생략가능)
+
+    | 모든이름     | 중복제거     |
+    |--------------|--------------|
+    |            4 |            3 |    
+        
+     
